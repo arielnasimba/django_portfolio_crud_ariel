@@ -1,0 +1,22 @@
+
+
+{% block main %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    
+    {{form.as_p}}
+    
+    <button type="submit"> ADD skills   <button >
+    
+    
+    </form>
+
+
+    
+    <form action={% url 'home' %} method="GET">
+        <button   type="submit" class="btn btn-outline-info rounded-5  align-self-end    ">back to home  </button>
+      </form>
+
+{% endblock main %}

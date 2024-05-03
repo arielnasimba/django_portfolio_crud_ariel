@@ -18,8 +18,27 @@ from django.contrib import admin
 from django.urls import path
 from about_app import views as aboutViews
 from index_app import views as indexViews
+from skillsSection_app import views as SkillsViews
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', indexViews.indexPage_ , name="home"),
-]
+    
+    
+    path('addProfile/', aboutViews.add_profile, name="addProfile"),
+    
+    
+    path('addSkills/', SkillsViews.add_skill, name="addSkills"),   # add skills
+    
+    path('all-Skills/', SkillsViews.read_skills, name="allSkills"),     # read all skills
+    
+    path('all-Skills/update/<int:id>', SkillsViews.update_skill, name="updateSkills"),  # update skills
+    path('skill-detail/<int:id>', SkillsViews.skill_details, name='skill_details' ),    #details skill
+
+    
+    path('all-Skills/<int:id>/destroy', SkillsViews.delete_skill , name="deleteSkills"),
+    
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

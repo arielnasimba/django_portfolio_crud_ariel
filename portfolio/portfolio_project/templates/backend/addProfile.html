@@ -1,0 +1,16 @@
+
+
+{% block main %}
+
+<form method="POST" enctype="multipart/form_data">
+
+    {% csrf_token %}
+    
+    {{form.as_p}}
+    
+    <button type="submit"> ADD Profile   <button >
+    
+    
+    </form>
+
+{% endblock main %}
