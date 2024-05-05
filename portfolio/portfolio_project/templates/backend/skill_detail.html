@@ -10,35 +10,13 @@
     {% bootstrap_javascript  %}
 </head>
 <body>
-
-
-
-    
     
     <div class="container-fluid  w-50 ">
         <h1> Details </h1>
         <h4> title of skill :    {{ skillInfo.name}} </h4>
 
-        {% comment %} <div class="progress-bar-wrap">
-            <div class="progress-bar" role="progressbar" aria-valuenow={{skillInfo.level_skill}} aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="progress">
-            <div
-                class="progress-bar bg-primary"
-                role="progressbar"
-                style={{ "width : skillInfo.level_skill "}}
-                aria-valuemin="0"
-                aria-valuemax="100"
-            >
-                Description
-            </div>
-          </div> {% endcomment %}
-
-
           <p> level of skill =>  {{ skillInfo.level_skill}} / 100   </p>
-          
-
-            
+                      
                   <form action={% url 'allSkills' %} method="GET">
                     <button   type="submit" class="btn btn-outline-info rounded-5  align-self-end    ">back to home  </button>
                   </form>

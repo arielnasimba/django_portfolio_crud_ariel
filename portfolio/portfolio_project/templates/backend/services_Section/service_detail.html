@@ -1,13 +1,12 @@
 {% load static %}
-{% load bootstrap5 %}
 
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     {% bootstrap_css  %}
     {% bootstrap_javascript  %}
 
@@ -32,27 +31,24 @@
       <link href={% static "assets/css/style.css" %} rel="stylesheet">
 </head>
 <body>
-    {% block content %}
     
-    
-    <form method="POST">
+    <div class="container-fluid  w-50 ">
+        <h1> Details </h1>
+        <h4> title of Service :    {{ serviceInfo.title}} </h4>
 
-        {% csrf_token%}
-        
-        {{ form}}
-        
-        
-        <button type="submit"> modify </button>
-        
-        
-        </form >
-    
-    {% endblock content %}
+          <p> Description Service =>  {{ serviceInfo.description}}    </p>
+
+          <div class="icon"><i class="bi {{ serviceInfo.icon }}"  ></i></div>
+
+                      
+                  <form action={% url 'allServices' %} method="GET">
+                    <button   type="submit" class="btn btn-outline-info rounded-5  align-self-end    ">back to all services  </button>
+                  </form>
+
+        </div>
+        </div>
 
 
-
-    
-    
         
     <!-- Vendor JS Files -->
     <script src={% static "assets/vendor/purecounter/purecounter_vanilla.js" %} ></script>
