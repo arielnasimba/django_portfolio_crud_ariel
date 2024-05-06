@@ -25,8 +25,8 @@ def add_project(request):
     
     
 def project_details(request, id):
-	profile_infos = Project.objects.get(id=id)
-	return render(request, 'backend/profile_Section/profile_detail.html', {'profile_infos' : profile_infos})
+	project_infos = Project.objects.get(id=id)
+	return render(request, 'backend/portfolio_Section/project_detail.html', {'project_infos' : project_infos})
 
 
 def update_project(request, id):
@@ -38,9 +38,9 @@ def update_project(request, id):
 
         # return redirect(reverse('profile_details', kwargs={'id': id}))
   
-		return redirect(reverse('profile_details', kwargs={'id': id}))
+		return redirect('allProjects')
 
-	return render(request, 'backend/profile_Section/updateProfile.html' ,  {'form' : form})
+	return render(request, 'backend/portfolio_Section/updateProject.html' ,  {'form' : form})
 
 
 def delete_project(request,id):

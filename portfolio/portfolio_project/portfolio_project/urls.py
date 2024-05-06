@@ -53,8 +53,8 @@ urlpatterns = [
     
     path('addProject/', PortfolioViews.add_project, name="addProject"),                          #  ===> add testimonial
     path('all-projects/', PortfolioViews.read_projects, name="allProjects"),                     #  ===> read all testimonial
-    # path('all-Testimonials/update/<int:id>', testimonialsViews.update_testimonial, name="updateTestimonial"),   #  ===> update testimonial
-    # path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),    #  ===> details testimonial
+    path('all-projects/update/<int:id>', PortfolioViews.update_project, name="updateProject"),   #  ===> update testimonial
+    path('project-detail/<int:id>', PortfolioViews.project_details, name='project_details' ),    #  ===> details testimonial
     path('project/<int:id>/destroy', PortfolioViews.delete_project , name="deleteProject"),     #  ===> delete testimonial
      
     #  <=====================================  Skills Section  =====================================>    #

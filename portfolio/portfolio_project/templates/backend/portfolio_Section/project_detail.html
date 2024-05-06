@@ -48,98 +48,55 @@
 
 
 
-
-
-
-
   <main id="main">
 
 
-    {% block main %}
 
 
-
-
-
-
-      <form action={% url 'addProject' %} method="GET">
-        <button  type="submit" class="btn btn-success rounded-5 align-self-center   ">ADD Project <i class="bi bi-pencil-square"></i> </button>
-      </form>
-
-      <form action={% url 'home'  %} method="GET">
-        <button  type="submit" class="btn btn-secondary rounded-5 align-self-center   ">BACK HOME  </button>
-      </form>
-
-
-
-
-  
-          <div class="row portfolio-container overflow-x-hidden " data-aos="fade-up" data-aos-delay="100">
+    
+    <div class="row portfolio-container overflow-x-hidden " data-aos="fade-up" data-aos-delay="100">
   
             
-            {% for project in listProjects %}
-            
-            <div class="col-lg-4 col-md-6 portfolio-item filter-{{project.category}}">
+        
+        <div class="col-lg-4 col-md-6 portfolio-item filter-{{project.category}}">
 
-                <h2> {{ project.project_title  }}</h2>
-              <div class="portfolio-wrap">
-                <img src="{{ project.imageProject.url }}" class="img-fluid w-50 h-50 " alt="">
-
-
-                    <p class="text-warning "> Deadline :  {{ project.deadline}} </p>
-
-                    <p class="text-success "> Link :  {{ project.website_link}} </p>
-
-                    <p class="text-info "> Category :  {{ project.category}} </p>
-
-                    <div class="d-flex "> 
-                        <form action="{% url 'project_details' project.id %}" method="GET">
-
-                            <button  type="submit" class="btn btn-secondary rounded-5   ">DETAILS <i class="bi bi-user"></i></button>
-                          </form>  
-
-
-                        <form action="{% url 'updateProject' project.id %}" method="GET">
-
-                            <button  type="submit" class="btn btn-success rounded-5   ">UPDATE <i class="bi bi-pencil-square"></i></button>
-                          </form>  
-
-                          
-                  <form action="{% url 'deleteProject' project.id %}" method="POST" >
-                    {% csrf_token %}
-                    
-                    <button type="submit"  class="btn btn-danger rounded-5 "> DELETE </button>
-                    </form>
+          <div class="portfolio-wrap">
+            <img src="{{ project_infos.imageProject.url }}" class="img-fluid w-50 h-50 " alt="">
                 
 
+                <h1 class="text-warning "> Title :  {{ project_infos.project_title}} </h1>
 
-                            
-{% comment %} 
-                  <form action="{% url 'testimonial_details' testimonial.id %}" method="POST" >
-                    {% csrf_token %}
-                    
-                    <button type="submit"  class="btn-secondary  rounded-4 "> DETAILS </button>
-                    </form> {% endcomment %}
+                <p class="text-warning "> Deadline :  {{ project_infos.deadline}} </p>
 
+                <p class="text-success "> Link :  {{ project_infos.website_link}} </p>
 
-                    </div>
-                    <p> {{ project.description}} </p>
+                <p class="text-info "> Category :  {{ project_infos.category}} </p>
+                
+                <h4> Description :</h4>
+                <p> {{ project_infos.description}} </p>
 
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{project.project_title}} 1"><i class="bx bx-plus"></i></a>
-                  {% comment %} <a href={% url '' %}  title="More Details"><i class="bx bx-link"></i></a> {% endcomment %}
-                </div>
-              </div>
+            <div class="portfolio-links">
+              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{project_infos.project_title}} 1"><i class="bx bx-plus"></i></a>
+              {% comment %} <a href={% url '' %}  title="More Details"><i class="bx bx-link"></i></a> {% endcomment %}
             </div>
-          
-            {% endfor %}
-
-  
           </div>
+        </div>
+
+          
+        
+    </div>
+    
+    
+    
+            <form action={% url 'allProjects' %} method="GET" >
+                
+                <button type="submit"  class="btn-success  rounded-4  mt-5 "> GO TO LIST OF PROJECTS </button>
+                </form>
+
+
 
     
     
-    {% endblock main %}
   </main>
 
 
