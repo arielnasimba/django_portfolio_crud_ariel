@@ -1,7 +1,24 @@
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  {% for hero in list_heros %}
+
+  <section id='hero'  class="d-flex flex-column justify-content-center align-items-center  "  
+  
+  style="background-image: url('{{hero.image.url }}'); background-size: cover; background-position: center;" >
+
     <div class="hero-container" data-aos="fade-in">
-      <h1>Alex Smith</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+
+<h1>   {{ hero.name}} {{ hero.last_name}}   </h1>
+<p>I'm <span class="typed" data-typed-items="{{ hero.word1}},  {{ hero.word2}},{{ hero.word3}},  {{ hero.word4}}"></span></p>
+
+
+
     </div>
+
+    
+    <form action="{% url 'hero_details' hero.id %}" method="GET" >
+      {% csrf_token %}
+      
+      <button type="submit"  class="btn-primary rounded-4 position-absolute z-3  end-0 me-5 top-0  mt-5     "> UPDATE <i class="bi bi-pencil-square"></i> </button>
+      </form>
+      {% endfor %}
   </section><!-- End Hero -->

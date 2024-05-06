@@ -23,6 +23,7 @@ from servicesSection_app import views as ServicesViews
 from testimonialsSection_app import views as testimonialsViews
 from contactSection_app import views as ContactViews
 from portfolioSection_app import views as PortfolioViews
+from hero_app import views as heroViews
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -35,6 +36,10 @@ urlpatterns = [
     path('addProfile/', aboutViews.add_profile, name="addProfile"),
     
     
+    #  <=====================================  Hero Section  =====================================>    #
+    
+    path('hero-details/<int:id>', heroViews.hero_details, name="hero_details"),                     #  ===> read all Profile
+    path('hero-edit/update/<int:id>', heroViews.update_hero, name="updateHero"),                  #  ===> update Profile
     #  <=====================================  Profile Section  =====================================>    #
     
     path('profile-details/<int:id>', aboutViews.profile_details, name="profile_details"),                     #  ===> read all Profile
