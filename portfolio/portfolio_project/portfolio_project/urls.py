@@ -21,6 +21,7 @@ from index_app import views as indexViews
 from skillsSection_app import views as SkillsViews
 from servicesSection_app import views as ServicesViews
 from testimonialsSection_app import views as testimonialsViews
+from contactSection_app import views as ContactViews
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -35,11 +36,8 @@ urlpatterns = [
     
     #  <=====================================  Profile Section  =====================================>    #
     
-    # path('addTestimonial/', testimonialsViews.add_testimonial, name="addTestimonial"),                          #  ===> add testimonial
-    path('profile-details/<int:id>', aboutViews.profile_details, name="profile_details"),                     #  ===> read all testimonial
-    path('profile-edit/update/<int:id>', aboutViews.update_profile, name="updateProfile"),   #  ===> update testimonial
-    # path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),    #  ===> details testimonial
-    # path('Testimonials/<int:id>/destroy', testimonialsViews.delete_testimonial , name="deleteTestimonial"),     #  ===> delete testimonial
+    path('profile-details/<int:id>', aboutViews.profile_details, name="profile_details"),                     #  ===> read all Profile
+    path('profile-edit/update/<int:id>', aboutViews.update_profile, name="updateProfile"),   #  ===> update Profile
     
     
     #  <=====================================  Testimonials Section  =====================================>    #
@@ -65,6 +63,15 @@ urlpatterns = [
     path('all-Services/update/<int:id>', ServicesViews.update_service, name="updateService"),                   #  ===> update service
     path('service-detail/<int:id>', ServicesViews.service_details, name='service_details' ),                    #  ===> details service
     path('all-Services/<int:id>/destroy', ServicesViews.delete_service , name="deleteService"),                 #  ===> delete service
+    
+    
+    #  <===================================== Contact Section =====================================>           #
+    
+    # path('all-Services/', ServicesViews.read_services, name="allServices"),                                     #  ===> read all service
+    # path('addService/', ServicesViews.add_service, name="addService"),                                          #  ===> add service
+    path('contacts/update/<int:id>', ContactViews.update_contact, name="updateContact"),                   #  ===> update service
+    path('contact-detail/<int:id>', ContactViews.contact_details, name='contact_details' ),                       #  ===> details service
+    # path('all-Services/<int:id>/destroy', ServicesViews.delete_service , name="deleteService"),                 #  ===> delete service
     
     
     
