@@ -22,6 +22,7 @@ from skillsSection_app import views as SkillsViews
 from servicesSection_app import views as ServicesViews
 from testimonialsSection_app import views as testimonialsViews
 from contactSection_app import views as ContactViews
+from portfolioSection_app import views as PortfolioViews
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -48,6 +49,14 @@ urlpatterns = [
     path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),    #  ===> details testimonial
     path('Testimonials/<int:id>/destroy', testimonialsViews.delete_testimonial , name="deleteTestimonial"),     #  ===> delete testimonial
     
+    #  <=====================================  Portfolio Section  =====================================>    #
+    
+    path('addProject/', PortfolioViews.add_project, name="addProject"),                          #  ===> add testimonial
+    path('all-projects/', PortfolioViews.read_projects, name="allProjects"),                     #  ===> read all testimonial
+    # path('all-Testimonials/update/<int:id>', testimonialsViews.update_testimonial, name="updateTestimonial"),   #  ===> update testimonial
+    # path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),    #  ===> details testimonial
+    path('project/<int:id>/destroy', PortfolioViews.delete_project , name="deleteProject"),     #  ===> delete testimonial
+     
     #  <=====================================  Skills Section  =====================================>    #
     
     path('addSkills/', SkillsViews.add_skill, name="addSkills"),                                                #  ===> add skills

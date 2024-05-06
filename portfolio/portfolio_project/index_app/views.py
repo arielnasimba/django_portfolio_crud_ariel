@@ -4,6 +4,7 @@ import servicesSection_app.models as servicesModel
 import testimonialsSection_app.models as testimonialsModel
 import about_app.models as aboutModel
 import contactSection_app.models as contactModel
+import portfolioSection_app.models as portfolioModel
 
 # Create your views here.
 
@@ -13,12 +14,14 @@ def indexPage_(request):
     list_skills = skillsModel.Skills.objects.all()                      # =======> List of all skills
     list_profile = aboutModel.Profile.objects.all()                      # =======> List of profile
     list_contact = contactModel.Contact.objects.all()                      # =======> List of contact
+    list_projects = portfolioModel.Project.objects.all()                      # =======> List of projects
     
     return render(request, 'frontend/index.html', { 'list_skills'           : list_skills, 
                                                     'list_services'         : list_services,
                                                     'list_testimonials'     : list_testimonials,
                                                     'list_profile'          : list_profile,
-                                                    'list_contact'          : list_contact
+                                                    'list_contact'          : list_contact,
+                                                    'list_projects'          : list_projects
                                                     }
                   )
 
