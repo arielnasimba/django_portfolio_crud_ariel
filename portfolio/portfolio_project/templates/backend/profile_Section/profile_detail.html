@@ -1,0 +1,180 @@
+{% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPortfolio Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href={% static "assets/img/favicon.png" %} rel="icon">
+    <link href={% static "assets/img/apple-touch-icon.png" %} rel="apple-touch-icon">
+
+      <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href={% static "assets/vendor/aos/aos.css" %} rel="stylesheet">
+    <link href={% static "assets/vendor/bootstrap/css/bootstrap.min.css" %} rel="stylesheet">
+    <link href={% static "assets/vendor/bootstrap-icons/bootstrap-icons.css" %} rel="stylesheet">
+    <link href={% static "assets/vendor/boxicons/css/boxicons.min.css" %} rel="stylesheet">
+    <link href={% static "assets/vendor/glightbox/css/glightbox.min.css" %} rel="stylesheet">
+    <link href={% static "assets/vendor/swiper/swiper-bundle.min.css" %} rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Template Main CSS File -->
+    <link href={% static "assets/css/style.css" %} rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: iPortfolio
+    * Updated: May 30 2023 with Bootstrap v5.3.0
+    * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+  
+
+    {% bootstrap_css  %}
+    {% bootstrap_javascript  %}
+</head>
+<body>
+  
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+
+
+
+
+
+
+  <main id="main">
+
+
+    {% block main %}
+
+
+
+    {% load static %}
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>About</h2>
+
+
+            <p>
+              {{ profile_infos.description_1 }}             
+            </p>
+          </div>
+
+
+          <div class="w-25  h-auto d-flex justify-content-between  ">
+
+            
+            {% comment %} <form action={% url 'addImage' %} method="GET"> {% endcomment %}
+  
+              {% comment %} <button  type="submit" class="btn btn-outline-primary rounded-5   ">EDIT <i class="bi bi-pencil"></i></button> {% endcomment %}
+            {% comment %} </form>   {% endcomment %}
+  
+       
+            
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+              {% comment %} <img src={% static "assets/img/profile-img.jpg" %} class="img-fluid" alt=""> {% endcomment %}
+              <img src="{{ profile_infos.imageProfile.url }}" class="img-fluid" alt="">
+
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+
+              {% if profile_infos.job_title2 %}
+              
+              <h3> {{ profile_infos.job_title}} &amp; {{ profile_infos.job_title2}}</h3>
+              
+              {% else %}
+
+
+              <h3> {{ profile_infos.job_title}}</h3>
+
+
+              {% endif %}
+              <p class="fst-italic">
+
+
+                {{ profile_infos.description_2 }} 
+
+              </p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>  {{ profile_infos.birthday }}   </span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span> {{ profile_infos.website }}  </span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span> {{ profile_infos.phoneNumber }}  </span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span> {{ profile_infos.city }}  </span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>  {{ profile_infos.age }}   </span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span> {{ profile_infos.degree }}   </span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span> {{ profile_infos.email }}   </span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span> {{ profile_infos.isFreelance }}  </span></li>
+                  </ul>
+                </div>
+              </div>
+              <p>
+                {{ profile_infos.description_3 }} 
+              </p>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+
+
+
+      <form action={% url 'updateProfile' 1 %} method="GET">
+        <button  type="submit" class="btn btn-outline-info rounded-5 align-self-center   ">EDIT PROFILE <i class="bi bi-pencil-square"></i> </button>
+      </form>
+
+      <form action={% url 'home'  %} method="GET">
+        <button  type="submit" class="btn btn-secondary rounded-5 align-self-center   ">BACK HOME  </button>
+      </form>
+
+
+
+
+
+
+    
+    
+    {% endblock main %}
+  </main>
+
+
+
+    
+
+    <!-- Vendor JS Files -->
+    <script src={% static "assets/vendor/purecounter/purecounter_vanilla.js" %} ></script>
+    <script src={% static "assets/vendor/aos/aos.js" %} ></script>
+    <script src={% static "assets/vendor/bootstrap/js/bootstrap.bundle.min.js" %} ></script>
+    <script src={% static "assets/vendor/glightbox/js/glightbox.min.js" %} ></script>
+    <script src={% static "assets/vendor/isotope-layout/isotope.pkgd.min.js" %} ></script>
+    <script src={% static "assets/vendor/swiper/swiper-bundle.min.js" %} ></script>
+    <script src={% static "assets/vendor/typed.js/typed.umd.js" %} ></script>
+    <script src={% static "assets/vendor/waypoints/noframework.waypoints.js" %} ></script>
+    <script src={% static "assets/vendor/php-email-form/validate.js" %} ></script>
+  
+    <!-- Template Main JS File -->
+    <script src={% static "assets/js/main.js" %}></script>
+</body>
+</html>

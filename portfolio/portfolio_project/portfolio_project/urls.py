@@ -33,12 +33,21 @@ urlpatterns = [
     path('addProfile/', aboutViews.add_profile, name="addProfile"),
     
     
-    #  <=====================================  Skills Section  =====================================>    #
+    #  <=====================================  Profile Section  =====================================>    #
+    
+    # path('addTestimonial/', testimonialsViews.add_testimonial, name="addTestimonial"),                          #  ===> add testimonial
+    path('profile-details/<int:id>', aboutViews.profile_details, name="profile_details"),                     #  ===> read all testimonial
+    path('profile-edit/update/<int:id>', aboutViews.update_profile, name="updateProfile"),   #  ===> update testimonial
+    # path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),    #  ===> details testimonial
+    # path('Testimonials/<int:id>/destroy', testimonialsViews.delete_testimonial , name="deleteTestimonial"),     #  ===> delete testimonial
+    
+    
+    #  <=====================================  Testimonials Section  =====================================>    #
     
     path('addTestimonial/', testimonialsViews.add_testimonial, name="addTestimonial"),                          #  ===> add testimonial
     path('all-Testimonials/', testimonialsViews.read_testimonials, name="allTestimonials"),                     #  ===> read all testimonial
-    path('all-Testimonials/update/<int:id>', testimonialsViews.update_testimonial, name="updateTestimonial"),                        #  ===> update testimonial
-    path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),                          #  ===> details testimonial
+    path('all-Testimonials/update/<int:id>', testimonialsViews.update_testimonial, name="updateTestimonial"),   #  ===> update testimonial
+    path('testimonial-detail/<int:id>', testimonialsViews.testimonial_details, name='testimonial_details' ),    #  ===> details testimonial
     path('Testimonials/<int:id>/destroy', testimonialsViews.delete_testimonial , name="deleteTestimonial"),     #  ===> delete testimonial
     
     #  <=====================================  Skills Section  =====================================>    #
