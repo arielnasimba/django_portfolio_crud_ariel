@@ -1,0 +1,102 @@
+
+{% comment %} {% extends "frontend/base.html" %} {% endcomment %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% bootstrap_css  %}
+    {% bootstrap_javascript  %}
+</head>
+<body>
+
+
+    
+    {% block content %}
+    
+    <h1> List of Testimonials </h1>
+    
+    
+    <table class="table w-75  container-fluid  table-striped " >
+        <thead>
+          <tr>
+            {% comment %} <th scope="col">#</th> {% endcomment %}
+            <th scope="col">Owner name of testimonial</th>
+            <th scope="col">Job Title </th>
+            <th scope="col">Self Description </th>
+            <th scope="col">Action DELETE</th>
+            <th scope="col">Action UPDATE</th>
+            <th scope="col">Action details</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {% for testimonial in listTestimonials  %}
+            
+            
+            <tr>
+              {% comment %} <th scope="row">{{testimonial.id}}  </th> {% endcomment %}
+              <td>{{ testimonial.name}}</td>
+              <td>{{ testimonial.jobTitle}} , {{ testimonial.jobTitle2}} </td>
+              <td>{{ testimonial.self_description}}</td>
+
+              <td>
+  
+  
+                  {% comment %} <button type="button"  class="btn-danger rounded-4 "> DELETE</button> {% endcomment %}
+  
+
+                  <form action="{% url 'deleteTestimonial' testimonial.id %}" method="POST" >
+                    {% csrf_token %}
+                    
+                    <button type="submit"  class="btn-danger rounded-4 "> DELETE </button>
+                    </form>
+              </td>
+              <td>
+  
+  
+                  {% comment %} <button type="button"  class="btn-danger rounded-4 "> DELETE</button> {% endcomment %}
+  
+
+                  <form action="{% url 'updateTestimonial' testimonial.id %}" method="POST" >
+                    {% csrf_token %}
+                    
+                    <button type="submit"  class="btn-success rounded-4 "> UPDATE </button>
+                    </form>
+              </td>
+              <td>
+  
+  
+                  {% comment %} <button type="button"  class="btn-danger rounded-4 "> DELETE</button> {% endcomment %}
+  
+
+                  <form action="{% url 'testimonial_details' testimonial.id %}" method="POST" >
+                    {% csrf_token %}
+                    
+                    <button type="submit"  class="btn-secondary  rounded-4 "> DETAILS </button>
+                    </form>
+              </td>
+            
+            {% endfor %}
+
+        </tbody>
+      </table>
+
+      <!-- ======= button to add skills======= -->
+      <form action={% url 'addTestimonial' %} method="GET">
+        <button   type="submit" class="btn btn-success  rounded-5  align-self-end    ">ADD NEW TESTIMONIAL <i class="bi bi-file-earmark-plus"></i> </button>
+      </form>
+
+
+      
+      <form action={% url 'home' %} method="GET">
+        <button   type="submit" class="btn btn-outline-info rounded-5  align-self-end    ">back to home  </button>
+      </form>
+    
+    {% endblock content %}
+    
+</body>
+</html>

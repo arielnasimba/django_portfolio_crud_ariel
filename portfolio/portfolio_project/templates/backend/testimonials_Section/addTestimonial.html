@@ -18,13 +18,13 @@
 
 {% block main %}
 
-<form method="POST" enctype="multipart/form_data">
+<form method="POST" enctype="multipart/form-data">
 
     {% csrf_token %}
     
     {{form.as_p}}
     
-    <button type="submit" class="btn btn-success  "> ADD Service   <button >
+    <button type="submit" class="btn btn-success  "> ADD Testimonial   <button >
     
     </form>
 

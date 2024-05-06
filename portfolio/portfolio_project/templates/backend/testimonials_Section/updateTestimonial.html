@@ -1,34 +1,36 @@
 {% load bootstrap5 %}
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     {% bootstrap_css  %}
     {% bootstrap_javascript  %}
 
 </head>
 <body>
-
-
+    {% block content %}
     
-
-{% block main %}
-
-<form method="POST" enctype="multipart/form_data">
-
-    {% csrf_token %}
     
-    {{form.as_p}}
-    
-    <button type="submit" class="btn btn-success  "> ADD Service   <button >
-    
-    </form>
+    <form method="POST">
 
-{% endblock main %}
+        {% csrf_token%}
+        
+        {{ form}}
+        
+        
+        <button type="submit"> modify </button>
+        
+        
+        </form >
+    
+    {% endblock content %}
+
+
+
     
 </body>
 </html>
